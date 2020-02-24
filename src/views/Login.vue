@@ -13,12 +13,15 @@
 <script>
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+
 export default {
   methods:{
      async pressed() {
        try{
         await firebase.auth().signInWithEmailAndPassword(this.email, this.password);
+        localStorage.userId = firebase.auth().currentUser.uid;
         this.$router.replace({name:'Do'});
+
        }
        catch(err) {
 

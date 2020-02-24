@@ -25,22 +25,24 @@
 </template>
 
 <script>
+var clientData = localStorage;
+console.log(localStorage.userId);
 import Header from '@/components/Header.vue';
 import {db} from '@/firebase';
 import 'firebase/auth';
 import * as firebase_app from 'firebase/app';
-var lesTachesRef = db.ref('lesTaches');
+var lesTachesRef = db.ref(clientData.userId);
+
 export default {
   name: 'app',
   mounted() {
-
-
+    this.$forceUpdate();
       firebase_app.auth().onAuthStateChanged(user => {
-        this.loggedIn = user;
-        if(this.loggedIn==false) {
-          this.$router.replace({name:'Home'});
-        }
         this.myUser = user;
+        if(this.myUser==false) {
+          this.$router.replace({name:'Home'});
+          localStorage.clear();
+        }
       })
   },
   data () {
@@ -65,6 +67,7 @@ export default {
         }
         if(!this.empty){
           lesTachesRef.push({nomTache:this.nomTache, edit:false})
+          this.nomTache='';
         }
     },
     removeTache(key) {

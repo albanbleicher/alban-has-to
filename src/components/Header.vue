@@ -23,13 +23,19 @@ export default {
   created() {
       firebase_app.auth().onAuthStateChanged(user => {
         this.loggedIn = !!user;
-        this.myUser = user;
+        if (user) {
+          localStorage.userId=user.uid;
+        }
+        else{
+          localStorage.clear();
+        }
       })
   },
 methods: {
   signOut() {
     firebase_app.auth().signOut();
     this.$router.replace({name:'Home'});
+    localStorage.clear();
   }
 }
 }
