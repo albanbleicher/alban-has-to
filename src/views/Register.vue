@@ -3,12 +3,12 @@
     <h1>Inscription</h1>
     <form class='auth' @submit.prevent="pressed">
       <p class='error' v-if="error">{{errorMsg}}</p>
-      <p class='success' v-if="success">Inscription validée, vous pouvez vous <router-link to="/login">connecter</router-link>.</p>
+      <p class='success' v-if="success">Inscription validée, vous pouvez vous <a href="/#/login?ok">Connexion</a>.</p>
       <input type="text" name="name" v-model="name" placeholder="Nom"/><br><br>
       <input type="mail" name="mail" v-model="email" placeholder="Mail"/><br><br>
       <input type="password" name="pass" v-model="password" placeholder="Mot de passe"/> <br><br>
         <button type='submit'>Inscription</button>
-        <p>Déjà inscrit? <a href="/login?ok">Connexion</a></p>
+        <p>Déjà inscrit? <a href="/#/login?ok">Connexion</a></p>
     </form>
   </div>
 </template>
