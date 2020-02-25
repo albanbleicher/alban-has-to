@@ -8,7 +8,7 @@
       <input type="mail" name="mail" v-model="email" placeholder="Mail"/><br><br>
       <input type="password" name="pass" v-model="password" placeholder="Mot de passe"/> <br><br>
         <button type='submit'>Inscription</button>
-        <p>Déjà inscrit? <a href="/login">Connexion</a></p>
+        <p>Déjà inscrit? <a href="/login?ok">Connexion</a></p>
     </form>
   </div>
 </template>
