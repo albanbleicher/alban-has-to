@@ -64,7 +64,9 @@ docRef.get().then(function(doc) {
 });
 
 
-self.$router.replace({name:'Dashboard'});
+setTimeout(function() {
+  self.$router.replace({name:'Dashboard'});
+}, 1000);
 // ...
 }).catch(function(error) {
 // Handle Errors here.
