@@ -1,15 +1,22 @@
 * {
   box-sizing: border-box;
 }
+$alt :#212121;
+$main: #6797E8;
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
-.noDo img {
-  width: 200px;
+.noDo {
+  align-self:center;
+  width: 100%;
+  img {
+   width: 200px;
+ }
 }
+
 .land {
   height: 100%;
   display: flex;
@@ -21,6 +28,12 @@ html, body {
   & img {
     width: 200px;
   }
+}
+.date {
+  margin-top: 5px;
+  font-size: 12px;
+  font-style: italic;
+  color:#8f8f8f;
 }
 .message{
   p {
@@ -52,7 +65,7 @@ html, body {
 }
 .header{
   height: 80px;
-  background-color: #212121;
+  background-color: $main;
   color: white;
   line-height: 80px;
   display: flex;
@@ -77,23 +90,28 @@ html, body {
 #app-content {
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  padding: 150px;
+  color: $alt;
+  padding: 50px;
+  flex-wrap: wrap;
+
 }
 
 .content {
   margin-top: 50px;
   padding: 50px;
   border: 1px solid #E3E3E3;
-  width: 100%;
+  width: 500px;
   margin-bottom: 50px;
   border-radius:5px;
+  display: flex;
+    height: 400px;
+    overflow-y: scroll;
+
 }
 
 h1.do {
@@ -101,29 +119,39 @@ h1.do {
 }
 
 button {
+  &.tick {
+    width: 25px !important;
+    height: 25px !important;
+    border:2px solid #E5E5E5;
+    border-radius: 5px;
+    background: white;
+    padding: 0;
+    &.ticked{
+      border-color: $main;
+      background: $main;
+    }
+  }
   margin-left: 20px;
   font-size: 13px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  background: #212121;
+  background: $main;
   color: white;
-  border: 1px solid #2c3e50;
+  border:none;
   box-shadow: 0;
-  border-radius: 100px;
+  border-radius: 5px;
   padding: 5px 15px;
   cursor: pointer;
-  transition: background .5s;
+  transition: opacity .3s;
   outline: none;
 
   &:hover {
-    background: transparent;
-    color: #2c3e50;
-
+    opacity: 0.4;
   }
 }
 
 input {
   font-size: 20px;
-  color: #2c3e50;
+  color: $alt;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   border: none;
   outline: none;
@@ -134,6 +162,8 @@ input {
   padding: 40px 60px;
   border-radius:5px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
   & button {
     margin: 0;
     font-size: 18px;
@@ -141,7 +171,8 @@ input {
   }
   & input {
     font-size: 20px;
-    color: #2c3e50;
+    margin-bottom: 20px;
+    color: $alt;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     border: none;
     outline: none;
@@ -158,14 +189,17 @@ h1, h2 {
 ul {
   list-style-type: none;
   padding: 0;
+    text-align: left;
 }
 
 li {
-  margin: 0 10px;
+  margin: 20px 10px;
 }
 
 a {
-  color: #42b983;
+  color: $main;
+  border-bottom: 1px dashed $main;
+  text-decoration: none;
 }
 
 .root {
@@ -180,5 +214,74 @@ a {
   align-items: center
 }
 .wrapperApp {
-  height: calc(100% - 80px);
+  height: calc(100% - 80px)
+}
+.taskElement {
+  display: inline-flex;
+  justify-content: left;
+  align-items: left;
+  transition: opacity 0.5s;
+  &.fade {
+    opacity: 0;
+  }
+  .taskContent {
+    margin-left: 20px;
+    max-width: 80%;
+    p {
+      margin: 0;
+    }
+  }
+}
+.hello {
+  width: 400px;
+}
+.nbTaskCtn {
+  display: inline-block;
+    line-height: 0px;
+    border-radius: 50%;
+    background: $main;
+    color: #fff;
+    margin: 0 5px;
+}
+.nbTask {
+  display: inline-block;
+    padding-top: 55%;
+    padding-bottom: 50%;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: bold;
+    z-index: 999;
+    font-size: 11px;
+}
+.form-group {
+  display: block;
+  margin-bottom: 20px;
+  label {
+    font-weight: bold;
+  }
+  input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+.googleBtn {
+  img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #212121;
+  box-shadow: 1px 1px 20px rgba(0,0,0,0.1);
+  font-size: 12px !important;
+}
+.avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 100%;
 }

@@ -1,10 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Auth from "../views/Auth.vue";
-import Login from "../views/Login.vue";
-import Register from "../views/Register.vue";
-import Do from "../views/Do.vue";
+import Login from "../views/auth/Login.vue";
+import Register from "../views/auth/Register.vue";
+import Dashboard from "../views/user/Dashboard.vue";
+import User from "../views/user/User.vue";
 
 Vue.use(VueRouter);
 
@@ -13,11 +13,6 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home
-  },
-  {
-    path: "/auth",
-    name: "Authentification",
-    component: Auth
   },
   {
     path: "/login",
@@ -30,9 +25,14 @@ const routes = [
     component: Register
   },
   {
-    path: "/do",
-    name: "Do",
-    component: Do
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard
+  },
+  {
+    path: "/user",
+    name: "User",
+    component: User
   },
   {
     path: "/about",
