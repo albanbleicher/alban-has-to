@@ -108,9 +108,8 @@ docRef.get().then(function(doc) {
 
 
 
-setTimeout(function() {
-  self.$router.replace({name:'Dashboard'});
-}, 1000);
+self.$router.replace({name:'Dashboard'});
+
 // ...
 }).catch(function(error) {
 // Handle Errors here.
