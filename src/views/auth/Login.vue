@@ -90,6 +90,14 @@ console.log(credential);
       password:'',
       error:false
     }
+  },
+  mounted(){
+    var self=this;
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        self.$router.replace({name:'Dashboard'});
+      }
+    });
   }
 }
 </script>

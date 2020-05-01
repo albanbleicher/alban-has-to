@@ -7,15 +7,17 @@
     <div class="actions">
       <router-link to="/user">Mon compte</router-link>
       <a href='#' @click='signOut'>Déconnexion</a>
+      <router-link to="/about">À propos</router-link>
+
     </div>
 </div>
   <div id="app-content">
     <div class="hello">
       <img v-if='myUser.profilePic !="#"' :src="myUser.profilePic" class="avatar">
-      <h1>Content de vous voir {{myUser.displayName}}!</h1>
+      <h2>Content de vous voir {{myUser.displayName}} 😊</h2>
       <p v-if='!free'>Vous avez <span class='nbTaskCtn'><span class='nbTask'>{{tasks.length}}</span></span> {{tasks.length >1 ? "tâches" : "tâche"}} à effectuer.</p>
       <form @submit.prevent="addTache">
-        <input placeholder="eat, sleep, repeat" type="text" name="nom" v-model="newTask">
+        <input placeholder="Ma nouvelle tâche..." type="text" name="nom" v-model="newTask">
         <button type='submit'>Ajouter</button>
       </form>
       <p v-if='empty' class='error'>Vous devez renseigner une tâche.</p>
@@ -82,9 +84,10 @@ export default{
         this.empty=false;
         console.log(this.newTask);
         var date = new Date();
-        var jour = date.getDay()<10 ? "0"+date.getDay() : date.getDay();
-        var mois = date.getMonth()<10 ? "0"+date.getMonth() : date.getMonth();
+        var jour = date.getDate()<10 ? "0"+date.getDate() : date.getDate();
+        var mois = (date.getMonth()+1)<10 ? "0"+(date.getMonth()+1) : date.getMonth()+1;
         var annee = date.getFullYear();
+
         var today = jour + '/'+mois+'/'+annee;
         var task = {
           id:this.tasks.length,

@@ -7,3 +7,6 @@
        <router-link to="/register">Inscription</router-link></p>
     </div>
 </template>
+<script type="text/javascript">
+
+</script>

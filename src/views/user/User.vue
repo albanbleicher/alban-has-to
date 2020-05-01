@@ -11,7 +11,8 @@
   </div>
   <div id="app-content">
     <div class="hello">
-      <h1>Mon profil</h1>
+      <img src="@/assets/images/profile.svg" alt="Profil" class='illu'>
+      <!-- <h1>Mon profil</h1> -->
       <form @submit.prevent="editProfile" class='auth'>
         <div class="form-group">
           <label for="prenom">Prénom</label>
@@ -19,6 +20,7 @@
           <input placeholder="Prénom" type="text" name="prenom" v-model='myUser.displayName'>
         </div>
         <div class="form-group">
+          <label>Mail lié au compte</label>
           <p>{{myUser.mail}}</p>
         </div>
         <button type='submit'>Changer mes informations</button>

@@ -127,6 +127,14 @@ console.log(credential);
 // ...
 });
 }
-  }
+},
+mounted(){
+  var self=this;
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      self.$router.replace({name:'Dashboard'});
+    }
+  });
+}
   }
 </script>
