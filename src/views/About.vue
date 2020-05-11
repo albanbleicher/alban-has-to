@@ -6,7 +6,6 @@
     <ul>
       <li>Vue.js</li>
       <li>Firebase (Firebase Auth + Firestore)</li>
-      <li>Node.js</li>
       <li>Sass</li>
     </ul>
     <p>myDo est un projet mené dans un but d'apprentissage des technologies citées précédemment.</p>
